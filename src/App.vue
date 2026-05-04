@@ -131,8 +131,8 @@ var sentence = sentences[Math.floor(Math.random() * sentences.length)]
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
+  backdrop-filter: blur(0.01px);
+  -webkit-backdrop-filter: blur(0.01px);
   mask-image: radial-gradient(circle, transparent 0%, black 100%);
   -webkit-mask-image: radial-gradient(circle, transparent 0%, black 100%);
   z-index: -1;
