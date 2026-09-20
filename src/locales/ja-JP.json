@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "QZCrane - Crane Carries Containers ;-)"
+  },
+  "profile": {
+    "avatarAlt": "QZCraneのアイコン",
+    "name": "QZCrane",
+    "motto": "Crane Carries Containers ;-)"
+  },
+  "links": {
+    "others": "↓ その他のリンク ↓",
+    "blogs": "↓ ブログ分岐 ↓"
+  },
+  "social": {
+    "bilibili": "ビリビリ",
+    "rednote": "小紅書",
+    "tiktok-cn": "抖音",
+    "kuaishou": "快手",
+    "discord": "Discord",
+    "github": "GitHub"
+  },
+  "blog": {
+    "translationToolsWiki": "翻訳ツール百科"
+  },
+  "languageSwitcher": {
+    "label": "言語"
+  }
+}

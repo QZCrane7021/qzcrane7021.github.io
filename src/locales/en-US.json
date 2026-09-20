@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "title": "QZCrane - Crane Carries Containers ;-)"
+  },
+  "profile": {
+    "avatarAlt": "QZCrane's avatar",
+    "name": "QZCrane",
+    "motto": "Crane Carries Containers ;-)"
+  },
+  "links": {
+    "others": "↓ Other Links ↓",
+    "blogs": "↓ Blog Branches ↓"
+  },
+  "social": {
+    "bilibili": "Bilibili",
+    "rednote": "Xiaohongshu",
+    "tiktok-cn": "Douyin",
+    "kuaishou": "Kuaishou",
+    "discord": "Discord",
+    "github": "GitHub"
+  },
+  "blog": {
+    "translationToolsWiki": "Translation Tools Wiki"
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  }
+}

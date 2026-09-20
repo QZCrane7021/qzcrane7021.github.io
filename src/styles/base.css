@@ -1,0 +1,37 @@
+/* =============================================================================
+ * 全局基础样式：字体、设计令牌、重置
+ * 只在 main.js 中引入一次；组件内部样式一律写在各自的 <style scoped> 里
+ * ========================================================================== */
+
+/* ---- 字体（文件位于 public/font，构建后按站点根路径 /font 访问）---- */
+@font-face {
+  font-family: 'sans-serif-cn';
+  src: url('/font/NotoSansSC_Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'sans-serif-en';
+  src: url('/font/Outfit_Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ---- 设计令牌 ---- */
+:root {
+  --font-sans: 'sans-serif-en', 'sans-serif-cn', sans-serif;
+}
+
+/* ---- 重置 ---- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+}

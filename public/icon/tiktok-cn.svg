@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   fill="none"
+   version="1.1"
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   id="svg1"
+   sodipodi:docname="tiktok-cn.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="25.192449"
+     inkscape:cx="7.4625536"
+     inkscape:cy="7.6213314"
+     inkscape:window-width="1512"
+     inkscape:window-height="839"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <defs
+     id="defs1">
+    <clipPath
+       id="master_svg0_40_22">
+      <rect
+         x="0"
+         y="0"
+         width="24"
+         height="24"
+         rx="0"
+         id="rect1" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#master_svg0_40_22)"
+     id="g1"
+     style="stroke:none;stroke-opacity:1">
+    <path
+       d="M16,8.2453699L16,15.5C16,19.089899,13.0899,22,9.5,22C5.9101501,22,3,19.089899,3,15.5C3,11.9101,5.9101501,9,9.5,9C10.0163002,9,10.5185003,9.060190200000001,11,9.173930200000001L11,12.3368C10.5453997,12.1208,10.0368004,12,9.5,12C7.5669999,12,6,13.567,6,15.5C6,17.433001,7.5669999,19,9.5,19C11.4329996,19,13,17.433001,13,15.5L13,2L16,2C16,4.7614198000000005,18.238599999999998,7,21,7L21,10C19.108101,10,17.3696,9.343279800000001,16,8.2453699Z"
+       fill="#FFFFFF"
+       fill-opacity="1"
+       style="mix-blend-mode:passthrough;stroke:none;stroke-opacity:1"
+       id="path1" />
+  </g>
+  <path
+     d="m 4.5693283,5.4253362 q -0.4373331,0 -0.8159995,-0.1439999 Q 3.3799957,5.132003 3.0973292,4.8653365 2.8146627,4.59867 2.6546628,4.2413369 2.4999962,3.8786704 2.4999962,3.4573374 q 0,-0.4266664 0.1546666,-0.7839996 Q 2.8146627,2.3160047 3.0919958,2.0546715 3.3746623,1.7933384 3.7479954,1.6493384 4.1213285,1.5000052 4.5586616,1.5000052 q 0.4426664,0 0.8106662,0.1386666 0.3679998,0.1386666 0.6399996,0.3839998 L 5.2999945,2.7373378 Q 5.1719946,2.5986712 4.985328,2.5186713 q -0.1813332,-0.08 -0.4266664,-0.08 -0.2133332,0 -0.3946664,0.069333 -0.1759999,0.069333 -0.3039998,0.2026665 -0.128,0.1333333 -0.2026666,0.3253332 -0.069333,0.1866665 -0.069333,0.4213331 0,0.2399998 0.069333,0.4319997 0.074667,0.1866666 0.2026666,0.3199998 0.1279999,0.1333333 0.3039998,0.2079999 0.1813332,0.069333 0.3946664,0.069333 0.2399999,0 0.4266664,-0.074667 0.1919999,-0.074667 0.3306665,-0.2186666 L 6.0306607,4.9080032 Q 5.7479942,5.1533364 5.3959945,5.2920029 5.0439947,5.4253362 4.5693283,5.4253362 Z m 1.8293307,-0.064 V 1.5640052 H 7.1453252 L 7.465325,2.3640047 v 2.9973315 z m 2.6133317,0 L 6.8093254,2.5933379 7.1453252,1.5640052 9.3479905,4.3320035 Z m 0,0 L 8.7453242,4.5186701 V 1.5640052 h 1.0666661 v 3.797331 z"
+     id="text1"
+     style="font-size:5.33333px;font-family:Outfit;-inkscape-font-specification:'Outfit, @wght=900';font-variation-settings:'wght' 900;fill:#ffffff"
+     aria-label="CN" />
+</svg>

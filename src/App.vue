@@ -1,135 +1,268 @@
 <script setup>
-var sentences = [
-  '“后来，那一方小小的坟茔，周围种满了金灿灿的莜麦。”',
-  '“忘却的出生之地，无论再返回多少次，都终究不是家。”',
-  '“籍贯那栏，他原本想填北方的家，却终究改成了脚下的土地，烟雨养人，也抹去了坝上的风沙。”',
-  '“那天下午，父亲送他回家，他硬是要停下来，看一看黄岛浴场的日落。”',
-  '“故都的人们走上游街，高喊‘打倒xxx’，然而异国的孩子遮面跑开了。”',
-  '“海的那头，居然也是九点就街上空空。天色微凉，他回想起在这座以和牛闻名的城市听到的第一句中文。”',
-  '“同事们都说他很厉害，四五岁的人，随随便便就是1000层台阶，但到了半山宾馆，入睡时间可不会骗人。”',
-  '“他脱了鞋，光着脚在金石滩上奔跑。‘嗷！’一块尖锐的小石子告诉他，还是穿着鞋好。”',
-  '“新年的钟声还未敲响，地上的火树银花就已迫不及待地遍地绽开。他们的航班在空中盘旋了好半天才降落。”',
-  '“来到楼顶，风声激荡，从世界第二高楼的高度俯视，人和万物，都如此渺小。”',
-  '“父母和他挥手告别，他头也不回，过了拐角的校医院，却愕然了：客居西南的新生活，就这么开始了。”',
-  '“冰冷的钢梁，红色的喷漆，大桥横贯大江，离地百米有余。看着下方的楼房，三十多度的天，却依然感到凌冽。”',
-  '“从此表哥有了相依之人；从此身上的压力多了三分。汽车一路南下，自由还未生发，他就看到了它的死亡。”',
-  '“‘起码这里是省内，一周能回一次，近多了。’他茫然地看着父亲百尺见方的新出租屋，安慰自己道。”',
-  '“‘胡同六步宽，小街十二步宽，大街二十四步宽。’自己的步子太大了么？怎么每个胡同都只有四五步？”',
+import { useLocale } from './locales'
+
+/**
+ * 链接数据集中维护：这里只放「数据」，界面文案一律取自 src/locales/*.json。
+ * - 新增社交平台 → 在 socialLinks 追加一项；在各语言文件的 social.<id> 补文案；
+ *   在下方样式的「品牌色」处补一条同名修饰类。
+ * - 新增博客分支 → 在 blogLinks 追加一项；在各语言文件按 labelKey 补文案。
+ */
+const { t, locale, locales, setLocale } = useLocale()
+
+const socialLinks = [
+  {
+    id: 'bilibili',
+    icon: '/icon/bilibili.svg',
+    url: 'https://space.bilibili.com/3546929734617957',
+  },
+  {
+    id: 'rednote',
+    icon: '/icon/rednote.svg',
+    url: 'https://www.xiaohongshu.com/user/profile/66a3a413000000001d020705',
+  },
+  {
+    id: 'tiktok-cn',
+    icon: '/icon/tiktok-cn.svg',
+    url: 'https://www.douyin.com/user/MS4wLjABAAAAg5FHrcGVIljHeNrGK5iqFFktG5tpEWJbratAPrUo8jU_ysyPNnqEpZnxDInuTpJD',
+  },
+  {
+    id: 'kuaishou',
+    icon: '/icon/kuaishou.svg',
+    url: 'https://www.kuaishou.com/profile/3x8ahu54az7n7sm',
+  },
+  {
+    id: 'discord',
+    icon: '/icon/discord.svg',
+    url: 'https://discord.com/users/1120181808617750589',
+  },
+  {
+    id: 'github',
+    icon: '/icon/github.svg',
+    url: 'https://github.com/QZCrane7021',
+  },
 ]
-var sentence = sentences[Math.floor(Math.random() * sentences.length)]
+
+const blogLinks = [
+  {
+    labelKey: 'blog.translationToolsWiki',
+    url: 'https://qzcrane7021.github.io/TranslationToolsWiki/',
+  },
+  // { labelKey: 'blog.essayDigest', url: '' },
+  // { labelKey: 'blog.smallTricks', url: '' },
+]
 </script>
 
 <template>
-  <img id="wallpaper" src="/img/wallpaper.png" />
-  <div id="header-panel">
-    <div id="avatar">
-      <img src="/img/avatar.png" />
-    </div>
-    <p class="name first this-site-text">起重鹤</p>
-    <p class="alias second this-site-text">QZCrane</p>
-    <p class="moto text this-site-text">论 Crane 的一词多义 ;-)</p>
-  </div>
-  <div id="link-panel">
-    <p class="section-title third this-site-text">↓ 其他链接 ↓</p>
-    <div class="link-panel-sections" id="social">
-      <button class="social-button bilibili">
-        <a href="https://space.bilibili.com/3546929734617957" target="_blank">
-          <img class="inner-icon" src="/icon/bilibili.svg" />
-        </a>
-      </button>
-      <button class="social-button rednote">
-        <a href="https://www.xiaohongshu.com/user/profile/66a3a413000000001d020705" target="_blank">
-          <img class="inner-icon" src="/icon/rednote.svg" />
-        </a>
-      </button>
-      <button class="social-button tiktok">
-        <a
-          href="https://www.douyin.com/user/MS4wLjABAAAAg5FHrcGVIljHeNrGK5iqFFktG5tpEWJbratAPrUo8jU_ysyPNnqEpZnxDInuTpJD"
-          target="_blank"
-        >
-          <img class="inner-icon" src="/icon/tiktok.svg" />
-        </a>
-      </button>
-      <button class="social-button kuaishou">
-        <a href="https://www.kuaishou.com/profile/3x8ahu54az7n7sm" target="_blank">
-          <img class="inner-icon" src="/icon/kuaishou.svg" />
-        </a>
-      </button>
-      <button class="social-button discord">
-        <a href="https://discord.com/users/1120181808617750589" target="_blank">
-          <img class="inner-icon" src="/icon/discord.svg" />
-        </a>
-      </button>
-      <button class="social-button github">
-        <a href="https://github.com/QZCrane7021" target="_blank">
-          <img class="inner-icon" src="/icon/github.svg" />
-        </a>
-      </button>
-    </div>
-    <div style="margin: 0; height: 5vh"></div>
-    <p class="section-title third this-site-text">↓ 博客分支 ↓</p>
-    <div class="link-panel-sections" id="blogs">
-      <!--a class="blog-link this-site-text"> [WIP]痴人文摘 </a-->
-      <!--a class="blog-link this-site-text"> [WIP]雕虫小技 </a-->
+  <div class="page">
+    <img class="page__wallpaper" src="/img/wallpaper.png" alt="" />
 
-      <a
-        class="blog-link this-site-text text"
-        href="https://qzcrane7021.github.io/TranslationToolsWiki/"
-        target="_blank"
+    <!-- 右上角：语言切换（绝对定位，不参与上下分栏） -->
+    <nav class="lang" :aria-label="t('languageSwitcher.label')">
+      <button
+        v-for="item in locales"
+        :key="item.code"
+        class="lang__button"
+        :class="{ 'lang__button--active': item.code === locale }"
+        type="button"
+        :lang="item.code"
+        :title="item.label"
+        :aria-pressed="item.code === locale"
+        @click="setLocale(item.code)"
       >
-        翻译工具百科
-      </a>
-    </div>
-  </div>
-  <div id="sentence-panel">
-    <p class="this-site-text text">{{ sentence }}</p>
+        {{ item.short }}
+      </button>
+    </nav>
+
+    <!-- 上半区：头像与昵称 -->
+    <header class="profile">
+      <img class="profile__avatar" src="/img/avatar.png" :alt="t('profile.avatarAlt')" />
+      <p class="profile__name">{{ t('profile.name') }}</p>
+      <p class="profile__moto">{{ t('profile.motto') }}</p>
+    </header>
+
+    <!-- 下半区：社交与博客入口 -->
+    <nav class="links">
+      <section class="links__group">
+        <p class="links__title">{{ t('links.others') }}</p>
+        <ul class="social-list">
+          <li v-for="link in socialLinks" :key="link.id">
+            <a
+              class="social-button"
+              :class="`social-button--${link.id}`"
+              :href="link.url"
+              target="_blank"
+              rel="noopener"
+            >
+              <img class="social-button__icon" :src="link.icon" :alt="t(`social.${link.id}`)" />
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="links__group">
+        <p class="links__title">{{ t('links.blogs') }}</p>
+        <ul class="blog-list">
+          <li v-for="link in blogLinks" :key="link.labelKey">
+            <a class="blog-link" :href="link.url" target="_blank" rel="noopener">
+              {{ t(link.labelKey) }}
+            </a>
+          </li>
+        </ul>
+      </section>
+    </nav>
   </div>
 </template>
 
 <style scoped>
-#wallpaper {
+/* =============================================================================
+ * 1. 设计令牌与页面级布局
+ *    所有尺寸/颜色集中在这里定义，改版时只需调整这一段
+ * ========================================================================== */
+.page {
+  --avatar-size: min(30vw, 30vh);
+  --social-size: 5vh;
+  --social-icon-size: 60%;
+  --social-gap: 0.5vw;
+  --group-gap: 5vh;
+  --brand-color: rgb(0 0 0 / 50%);
+  --text-shadow: 0 0 0.2em rgb(0 0 0);
+
+  /* 用 grid 直接划分上下两栏，替代 top: 50% 之类的魔法定位 */
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  overflow: hidden;
+}
+
+.page__wallpaper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: -1;
 }
 
-.blog-link {
-  color: white;
-  font-size: calc(min(2vw, 2vh));
-  font-weight: bold;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
+/* =============================================================================
+ * 2. 文本通用样式
+ *    颜色/字重/阴影统一继承，字号由各元素按需定义
+ * ========================================================================== */
+.profile,
+.links {
+  color: #fff;
+  font-weight: 700;
+  text-shadow: var(--text-shadow);
 }
 
-.social-button {
-  height: 5vh;
-  width: 5vh;
-  border: 0;
-  border-radius: 2.5vh;
-  margin-left: 0.25vw;
-  margin-right: 0.25vw;
-
+/* =============================================================================
+ * 3. 上半区：头像与昵称
+ * ========================================================================== */
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  backdrop-filter: blur(1px);
-  -webkit-backdrop-filter: blur(1px);
-  position: relative;
 }
 
+.profile__avatar {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+}
+
+.profile__name {
+  margin: 0.1em 0 0;
+  font-size: 5vh;
+}
+
+/* 以下用相对定位做视觉微调：只影响自身，不改变后续元素的排版 */
+
+.profile__moto {
+  position: relative;
+  top: 0em;
+  margin: 0;
+  font-size: 2vh;
+}
+
+/* =============================================================================
+ * 4. 下半区：链接面板
+ * ========================================================================== */
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: var(--group-gap);
+}
+
+.links__group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links__title {
+  margin: 0 0 0.1em;
+  font-size: 3vh;
+}
+
+/* 两个列表共用：横排、居中，并清掉 ul 的默认样式 */
+.social-list,
+.blog-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5vh 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-list {
+  column-gap: var(--social-gap);
+}
+
+.blog-list {
+  column-gap: 1em;
+  font-size: 2vh;
+}
+
+/* ---- 4.1 社交按钮：品牌色通过 --brand-color 变量注入 ---- */
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: var(--social-size);
+  height: var(--social-size);
+  border-radius: 50%;
+  background-color: var(--brand-color);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  transition:
+    transform 0.15s ease,
+    filter 0.15s ease;
+}
+
+.social-button:hover {
+  transform: scale(1.08);
+  filter: brightness(1.15);
+}
+
+.social-button:active {
+  transform: scale(0.96);
+}
+
+.social-button:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 80%);
+  outline-offset: 2px;
+}
+
+/* 边缘玻璃质感：径向遮罩让模糊从中心向外过渡 */
 .social-button::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   border-radius: inherit;
   backdrop-filter: blur(0.01px);
   -webkit-backdrop-filter: blur(0.01px);
@@ -138,156 +271,96 @@ var sentence = sentences[Math.floor(Math.random() * sentences.length)]
   z-index: -1;
 }
 
-.social-button > a {
-  height: 80%;
-  width: 80%;
+.social-button__icon {
+  width: var(--social-icon-size);
+  height: var(--social-icon-size);
 }
 
-.inner-icon {
-  width: 100%;
-  height: 100%;
+/* ---- 4.2 品牌色：新增平台时补一条，类名与 socialLinks[].id 对应 ---- */
+.social-button--bilibili {
+  --brand-color: rgb(251 114 153 / 50%);
 }
 
-#background {
+.social-button--rednote {
+  --brand-color: rgb(255 37 63 / 50%);
+}
+
+.social-button--tiktok-cn {
+  --brand-color: rgb(0 0 0 / 50%);
+}
+
+.social-button--kuaishou {
+  --brand-color: rgb(255 73 6 / 50%);
+}
+
+.social-button--discord {
+  --brand-color: rgb(89 102 242 / 50%);
+}
+
+.social-button--github {
+  --brand-color: rgb(0 0 0 / 50%);
+}
+
+/* ---- 4.3 博客链接 ---- */
+.blog-link {
+  margin-inline: 0.5em;
+  color: inherit;
+}
+
+/* =============================================================================
+ * 5. 右上角语言切换
+ *    绝对定位脱离 grid 流，不会占用上下两栏的排版位置
+ * ========================================================================== */
+.lang {
   position: absolute;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-
+  top: max(1.5vh, 0.75rem);
+  right: max(1.5vw, 0.75rem);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 0.2em;
+  padding: 0.25em;
+  border-radius: 999px;
+  background-color: rgb(0 0 0 / 30%);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  color: #fff;
+  text-shadow: var(--text-shadow);
 }
 
-#header-panel {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 50vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.lang__button {
+  min-width: 2em;
+  padding: 0.25em 0.5em;
+  border: 0;
+  border-radius: 999px;
+  background-color: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: max(0.7rem, 1.4vh);
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
-#link-panel {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100vw;
-  height: 50vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: baseline;
+.lang__button:hover {
+  background-color: rgb(255 255 255 / 20%);
 }
 
-#sentence-panel {
-  position: absolute;
-  left: 0;
-  top: 90%;
-  width: 100vw;
-  height: 10vh;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: baseline;
+.lang__button:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 80%);
+  outline-offset: 2px;
 }
 
-.link-panel-sections {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 0.5vh;
+/* 当前语言：反白突出 */
+.lang__button--active {
+  background-color: rgb(255 255 255 / 85%);
+  color: rgb(0 0 0 / 80%);
+  text-shadow: none;
 }
 
-#avatar {
-  height: calc(min(30vw, 30vh));
-  width: calc(min(30vw, 30vh));
-}
-
-#avatar > img {
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-}
-
-.this-site-text {
-  font-weight: bold;
-  color: white;
-  text-shadow: 0 0 0.2em rgb(0 0 0);
-}
-
-.first {
-  font-size: 5vh;
-}
-
-.name {
-  margin-top: 0.1em;
-  margin-bottom: 0;
-}
-
-.second {
-  font-size: 4vh;
-}
-
-.alias {
-  position: relative;
-  margin-top: 0;
-  margin-bottom: 0;
-  top: -0.25em;
-}
-
-.third {
-  font-size: 3vh;
-}
-
-.section-title {
-  position: relative;
-  margin-top: 0;
-  margin-bottom: 0.1em;
-}
-
-.text {
-  font-size: 2vh;
-}
-
-.moto {
-  position: relative;
-
-  margin-top: 0;
-  margin-bottom: 0;
-  top: -0.5em;
-}
-
-.bilibili {
-  background-color: rgba(251, 114, 153, 0.5);
-}
-
-.github {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.rednote {
-  background-color: rgba(255, 37, 63, 0.5);
-}
-
-.tiktok {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.kuaishou {
-  background-color: rgba(255, 73, 6, 0.5);
-}
-
-.discord {
-  background-color: rgba(89, 102, 242, 0.5);
+.lang__button--active:hover {
+  background-color: #fff;
 }
 </style>
