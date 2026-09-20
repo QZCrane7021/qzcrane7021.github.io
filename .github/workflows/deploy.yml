@@ -1,0 +1,63 @@
+# 推送到 main 后自动构建并发布到 GitHub Pages。
+#
+# 前置条件（只需设置一次，无法用代码代替）：
+#   仓库 Settings → Pages → Build and deployment → Source 必须选 "GitHub Actions"。
+#   如果这里仍然是 "Deploy from a branch"，下面的 deploy-pages 步骤会失败
+#   （典型报错：Get Pages site failed / Not Found）。
+#
+# 设置好之后，gh-pages 分支和本地的 `npm run deploy` 就不再需要了。
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# 允许读取仓库内容、写入 Pages、以及用 OIDC 令牌向 Pages 认证
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只跑一次 Pages 部署，避免并发发布会互相覆盖
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          # 需满足 package.json 的 engines: ^20.19.0 || >=22.12.0
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
